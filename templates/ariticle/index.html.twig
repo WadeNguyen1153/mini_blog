@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ariticle index{% endblock %}
+
+{% block body %}
+    <h1>Ariticle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ShortDescription</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>UpdateAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ariticle in ariticles %}
+            <tr>
+                <td>{{ ariticle.id }}</td>
+                <td>{{ ariticle.shortDescription }}</td>
+                <td>{{ ariticle.content }}</td>
+                <td>{{ ariticle.createdAt ? ariticle.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ ariticle.updateAt ? ariticle.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_ariticle_show', {'id': ariticle.id}) }}">show</a>
+                    <a href="{{ path('app_ariticle_edit', {'id': ariticle.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ariticle_new') }}">Create new</a>
+{% endblock %}

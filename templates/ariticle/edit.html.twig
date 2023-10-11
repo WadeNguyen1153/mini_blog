@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ariticle{% endblock %}
+
+{% block body %}
+    <h1>Edit Ariticle</h1>
+
+    {{ include('ariticle/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ariticle_index') }}">back to list</a>
+
+    {{ include('ariticle/_delete_form.html.twig') }}
+{% endblock %}

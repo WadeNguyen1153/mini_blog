@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ariticle{% endblock %}
+
+{% block body %}
+    <h1>Create new Ariticle</h1>
+
+    {{ include('ariticle/_form.html.twig') }}
+
+    <a href="{{ path('app_ariticle_index') }}">back to list</a>
+{% endblock %}
